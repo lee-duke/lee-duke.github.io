@@ -1,0 +1,346 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>git基本使用 | lee-duke</title>
+  <meta name="author" content="John Doe" />
+
+  
+  <meta name="description" content="22" />
+  
+
+  
+  <meta name="keywords" content="33" />
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="git基本使用" />
+  <meta property="og:site_name" content="lee-duke" />
+
+  
+  
+
+  
+    <meta property="og:image" content="" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="lee-duke" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">lee-duke</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2020-09-28T11:30:46.000Z"><a href="/2020/09/28/git基本使用/">2020-09-28</a></time>
+      
+      
+  
+    <h1 class="title">git基本使用</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a target="_blank" rel="noopener" href="https://git-scm.com/">git官网</a></p>
+<p>安装完毕后，鼠标右键菜单会多出来两个跟git有关的选项，选择<code>Git Bash Here</code></p>
+<a id="more"></a>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ul>
+<li><p>配置git用户信息</p>
+<blockquote>
+<p><code>git config --global user.name &quot;GitHub用户名&quot;</code></p>
+</blockquote>
+<blockquote>
+<p><code>git config --global user.email &quot;GitHub邮箱&quot;</code></p>
+</blockquote>
+</li>
+<li><p>生成命令<code>ssh-keygen -t rsa -C &quot;Github邮箱&quot;</code></p>
+</li>
+<li><p>生成之后，到<code>C:\Users\Administrator\.ssh</code>中找到<code>id_rsa.pub</code>文件,<code>id_rsa</code>是私钥，不要泄露给别人</p>
+</li>
+<li><p>进入github官网，点击自己头像下的<code>Settings</code>进入设置页面</p>
+</li>
+<li><p>点击<code>SSH and GPG keys</code>进行配置公钥(<code>SSH key</code>)，把<code>id_rsa.pub</code>中的内容复制进去即可</p>
+</li>
+<li><p>新建github仓库，名字为自定义</p>
+</li>
+<li><p>会生成一个链接<code>https://你的github名.github.io/</code>，在浏览器中输入链接即可访问</p>
+</li>
+</ul>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="1-开始新项目"><a href="#1-开始新项目" class="headerlink" title="1. 开始新项目"></a>1. 开始新项目</h3><ul>
+<li><p>创建一个空文件夹作为仓库，尽量是英文</p>
+</li>
+<li><p>执行<code>git init</code>让该文件初始化，初始化完成会生成一个.git文件(默认隐藏，<code>attrib -h .git</code>可以让其显示)</p>
+</li>
+<li><p>在文件中创建文件，然后执行<code>git add .</code>命令</p>
+</li>
+<li><p>执行<code>git commit -m &quot;第一次提交文件&quot;</code>，提交文件，添加描述</p>
+</li>
+<li><p>执行<code>git push</code>，将代码推向代码库，然后就可以在github上你的仓库中看到你上传的文件</p>
+</li>
+</ul>
+<h3 id="2-接手已有项目"><a href="#2-接手已有项目" class="headerlink" title="2. 接手已有项目"></a>2. 接手已有项目</h3><ul>
+<li><p>在合适位置执行克隆命令，<code>git clone 仓库地址</code>，会把远程库的代码克隆到本地文件夹</p>
+</li>
+<li><p>执行<code>git init</code>初始化出.git文件</p>
+</li>
+<li><p>执行<code>git push -u origin master</code>，防止后边的命令出错</p>
+</li>
+<li><p>写入需要的代码，然后执行<code>git add .</code></p>
+</li>
+<li><p>执行<code>git commit -m &quot;对此次修改文件的描述&quot;</code>，提交文件</p>
+</li>
+<li><p>执行<code>git push</code>，将代码推向代码库</p>
+</li>
+</ul>
+<h2 id="将本地代码推到github已有仓库的指定分支上"><a href="#将本地代码推到github已有仓库的指定分支上" class="headerlink" title="将本地代码推到github已有仓库的指定分支上"></a>将本地代码推到github已有仓库的指定分支上</h2><ul>
+<li><p>将本地文件所在目录变成仓库(初始化)</p>
+<blockquote>
+<p><code>git init</code></p>
+</blockquote>
+</li>
+<li><p>直接添加所有文件</p>
+<blockquote>
+<p><code>git add .</code></p>
+</blockquote>
+</li>
+<li><p>给此次操作添加描述</p>
+<blockquote>
+<p><code>git commit -m &quot;描述&quot;</code></p>
+</blockquote>
+</li>
+<li><p>将本地仓库关联到github仓库上</p>
+<blockquote>
+<p><code>git remote add origin 仓库地址</code></p>
+</blockquote>
+</li>
+<li><p>创建本地分支，并切换到创建的分支上(此分支名会添加到远程分支上)</p>
+<blockquote>
+<p><code>git branch 分支名</code>, <code>git checkout 分支名</code></p>
+</blockquote>
+</li>
+<li><p>将代码提交到远程分支</p>
+<blockquote>
+<p><code>git push origin 分支名</code></p>
+</blockquote>
+</li>
+<li><p>会提示输入github的账号密码，输入即可(完成后如果报错，再来一次)</p>
+</li>
+<li><p>如果出现错误信息<code>fatal: remote origin already exists</code>，解决办法如下</p>
+<blockquote>
+<p>先执行<code>git remote rm origin</code></p>
+</blockquote>
+<blockquote>
+<p>在执行<code>git remote add origin 仓库地址</code></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="git-常用命令"><a href="#git-常用命令" class="headerlink" title="git 常用命令"></a>git 常用命令</h2><ul>
+<li><p><code>git add .</code>: 将更改的所有文件添加进入暂存区(会自动识别更改的文件)</p>
+<blockquote>
+<p><code>git add &#39;文件名&#39;</code>提交单个文件</p>
+</blockquote>
+</li>
+<li><p><code>git status</code>: 查看当前git所处的状态</p>
+<blockquote>
+<p>放在<code>git add</code> 之后可以查看当前都添加了哪些修改的内容</p>
+</blockquote>
+</li>
+<li><p><code>git commit -m &quot;本次更改的描述内容&quot;</code>: 描述内容需要表达本次修改的内容</p>
+<blockquote>
+<p>方便后期查看，禁止不写或乱写</p>
+</blockquote>
+</li>
+<li><p><code>git pull</code>: <strong>在把代码推向代码库之前，必须执行该命令，并看到<code>Already up to date</code>才能执行<code>git push</code>命令，否则会覆盖别人上传的代码</strong></p>
+</li>
+<li><p><code>git push</code>: 将代码推向代码库</p>
+<blockquote>
+<p><strong>必须在<code>git pull</code>执行之后看到<code>Already up to date</code>才能执行</strong></p>
+</blockquote>
+</li>
+<li><p><code>git branch</code>: 查看此项目中都有哪些分支</p>
+<blockquote>
+<p><code>git branch 分支名</code>创建分支</p>
+</blockquote>
+<blockquote>
+<p><code>git branch -a</code>查看所有分支(本地 + 远程(前缀为origin))</p>
+</blockquote>
+</li>
+<li><p><code>git checkout 分支名</code>: 切换到某个分支，<code>git switch 分支名</code>也可以切换</p>
+<blockquote>
+<p>分支内容修改后建议执行<code>git push origin 分支名</code>防止出错</p>
+</blockquote>
+</li>
+<li><p><code>git merge 分支名</code>: 合并分支</p>
+<blockquote>
+<p>将对应分支的代码拿到当前分支下(一般是master)</p>
+</blockquote>
+</li>
+<li><p><code>git checkout -- file</code>: 可以撤销当前文件提交的更改，<code>git push</code>之前有效</p>
+</li>
+<li><p><code>git log</code>: 查看git的使用记录(日志)</p>
+<blockquote>
+<p><code>git log --pretty=oneline</code>可以使日志一行显示(日志id 和 内容描述)</p>
+</blockquote>
+</li>
+<li><p><code>git reset --hard HEAD^</code>: 回退到上一个内容版本</p>
+<blockquote>
+<p><code>git reset --hard 日志id</code>可以回退到对应的内容版本</p>
+</blockquote>
+</li>
+<li><p><code>git reflog</code>: 查看每一次的版本控制记录</p>
+</li>
+<li><p><code>git push origin --delete 分支名</code>: 删除对应的远程分支</p>
+<blockquote>
+<p>如果发生以下错误</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">error: unable to delete ‘origin&#x2F;xxxxxxxx-fixbug’: remote ref does not exist</span><br><span class="line">error: failed to push some refs to ‘git@github.com:xxxxxxxx&#x2F;xxxxxxxxxx.git&#96;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>解决办法: 切换到该分支上<code>git checkout 分支名</code>，再进行删除<code>git push --delete origin origin/分支名</code></p>
+</blockquote>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/git/">git</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:example.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2020/09/28/git基本使用/">git基本使用</a>
+      </li>
+    
+      <li>
+        <a href="/2020/09/24/json-server的基本使用/">json-server的基本使用</a>
+      </li>
+    
+      <li>
+        <a href="/2020/09/24/在github上部署hexo/">在github上部署hexo</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/git/">git</a><small>1</small></li>
+  
+    <li><a href="/tags/hexo使用/">hexo使用</a><small>1</small></li>
+  
+    <li><a href="/tags/json-server/">json-server</a><small>1</small></li>
+  
+    <li><a href="/tags/部署/">部署</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">hexo使用</a> <a href="/tags/json-server/" style="font-size: 10px;">json-server</a> <a href="/tags/%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">部署</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2020 John Doe
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+</body>
+</html>

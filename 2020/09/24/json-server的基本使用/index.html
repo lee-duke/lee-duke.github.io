@@ -1,0 +1,233 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>json-server的基本使用 | lee-duke</title>
+  <meta name="author" content="John Doe" />
+
+  
+  <meta name="description" content="22" />
+  
+
+  
+  <meta name="keywords" content="33" />
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="json-server的基本使用" />
+  <meta property="og:site_name" content="lee-duke" />
+
+  
+  
+
+  
+    <meta property="og:image" content="" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="lee-duke" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">lee-duke</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2020-09-24T11:35:24.000Z"><a href="/2020/09/24/json-server的基本使用/">2020-09-24</a></time>
+      
+      
+  
+    <h1 class="title">json-server的基本使用</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g json-server</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h2><p>在合适位置创建一个文件夹，尽量是英文</p>
+<h2 id="创建-db-json"><a href="#创建-db-json" class="headerlink" title="创建 db.json"></a>创建 db.json</h2><p>在文件夹中创建一个db.json，并进行编辑</p>
+<h2 id="json中写入数据"><a href="#json中写入数据" class="headerlink" title="json中写入数据"></a>json中写入数据</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;books&quot;</span>: [],</span><br><span class="line">  <span class="attr">&quot;users&quot;</span>: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当db.json中有以上数据时，json-server会提供以下接口</p>
+<p><strong>books 相关接口</strong></p>
+<ul>
+<li><p>GET <code>/books</code> 获取所有信息</p>
+</li>
+<li><p>GET <code>/books/:id</code> 获取单个信息</p>
+</li>
+<li><p>POST <code>/books</code> 新增数据</p>
+</li>
+<li><p>PATCH <code>/books/:id</code> 更新部分数据(只修改传入的数据，不传入的数据保持不动)</p>
+</li>
+<li><p>PUT <code>/books/:id</code> 更新全部数据(将所有的数据替换为传入的数据)</p>
+</li>
+<li><p>DELETE <code>/books/:id</code> 删除单个数据</p>
+</li>
+</ul>
+<p><strong>users 相关接口</strong></p>
+<ul>
+<li><p>GET <code>/users</code> 获取所有信息</p>
+</li>
+<li><p>GET <code>/users/:id</code> 获取单个信息</p>
+</li>
+<li><p>POST <code>/users</code> 新增数据</p>
+</li>
+<li><p>PATCH <code>/users/:id</code> 更新部分数据(只修改传入的数据，不传入的数据保持不动)</p>
+</li>
+<li><p>PUT <code>/users/:id</code> 更新全部数据(将所有的数据替换为传入的数据)</p>
+</li>
+<li><p>DELETE <code>/users/:id</code> 删除单个数据</p>
+</li>
+</ul>
+<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">json-server db.json</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询方式"><a href="#查询方式" class="headerlink" title="查询方式"></a>查询方式</h2><h3 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">axios.get(<span class="string">&#x27;http://localhost:3000/banners&#x27;</span>, &#123;</span><br><span class="line">  params: &#123;</span><br><span class="line">    _page: <span class="number">1</span>,   <span class="comment">// 第几页</span></span><br><span class="line">    _limit: <span class="number">10</span>  <span class="comment">// 每页多少条</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="过滤查询"><a href="#过滤查询" class="headerlink" title="过滤查询"></a>过滤查询</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">axios.get(<span class="string">&#x27;http://localhost:3000/banners&#x27;</span>, &#123;</span><br><span class="line">  params: &#123;</span><br><span class="line">    id_gte: <span class="number">20</span>, <span class="comment">// ID &gt;= 50</span></span><br><span class="line">    id_lte: <span class="number">30</span>, <span class="comment">// ID &lt;&gt;= 30</span></span><br><span class="line">    id_ne: <span class="number">40</span>, <span class="comment">// ID != 40</span></span><br><span class="line">    id_like: <span class="number">5</span> <span class="comment">// ID 包含 5</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="查询某一段数据"><a href="#查询某一段数据" class="headerlink" title="查询某一段数据"></a>查询某一段数据</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">axios.get(<span class="string">&#x27;http://localhost:3000/banners&#x27;</span>, &#123;</span><br><span class="line">  params: &#123;</span><br><span class="line">    _start: <span class="number">20</span>, <span class="comment">// 数据从第21条开始</span></span><br><span class="line">    _end: <span class="number">30</span>    <span class="comment">// 数据到第30条结束</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="排序查询"><a href="#排序查询" class="headerlink" title="排序查询"></a>排序查询</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">axios.get(<span class="string">&#x27;http://localhost:3000/banners&#x27;</span>, &#123;</span><br><span class="line">  params: &#123;</span><br><span class="line">    _sort: <span class="string">&#x27;id&#x27;</span>,  <span class="comment">// 按照id进行排序</span></span><br><span class="line">    _order: <span class="string">&#x27;desc&#x27;</span>  <span class="comment">// 降序，升序用asc</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/json-server/">json-server</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:example.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2020/09/28/git基本使用/">git基本使用</a>
+      </li>
+    
+      <li>
+        <a href="/2020/09/24/json-server的基本使用/">json-server的基本使用</a>
+      </li>
+    
+      <li>
+        <a href="/2020/09/24/在github上部署hexo/">在github上部署hexo</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/git/">git</a><small>1</small></li>
+  
+    <li><a href="/tags/hexo使用/">hexo使用</a><small>1</small></li>
+  
+    <li><a href="/tags/json-server/">json-server</a><small>1</small></li>
+  
+    <li><a href="/tags/部署/">部署</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">hexo使用</a> <a href="/tags/json-server/" style="font-size: 10px;">json-server</a> <a href="/tags/%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">部署</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2020 John Doe
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+</body>
+</html>
